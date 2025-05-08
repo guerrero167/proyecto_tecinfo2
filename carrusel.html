@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrusel de Imágenes</title>
+<style>
+        .carrusel-contenedor {
+            width: 500px; /* Ajusta el ancho según necesites */
+            overflow: hidden;
+            position: relative;
+        }
+ 
+        .carrusel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+ 
+        .carrusel-imagen {
+            min-width: 100%;
+            height: auto;
+        }
+ 
+        .nav-botones {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+ 
+        .nav-botones button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 10px;
+            color: #333;
+        }
+ 
+        .nav-botones button:hover {
+            color: #007bff;
+        }
+ 
+        .indicadores {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+ 
+        .indicador {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #bbb;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+ 
+        .indicador.activo {
+            background-color: #333;
+        }
+</style>
+</head>
+<body>
+<div class="carrusel-contenedor">
+<div class="carrusel-track">
+<img src="imagen1.jpg" alt="Imagen 1" class="carrusel-imagen">
+<img src="imagen2.jpg" alt="Imagen 2" class="carrusel-imagen">
+<img src="imagen3.jpg" alt="Imagen 3" class="carrusel-imagen">
+<img src="imagen4.jpg" alt="Imagen 4" class="carrusel-imagen">
+<img src="imagen5.jpg" alt="Imagen 5" class="carrusel-imagen">
+<img src="imagen6.jpg" alt="Imagen 6" class="carrusel-imagen">
+</div>
+<div class="nav-botones">
+<button onclick="moverCarrusel(-1)">&#10094;</button>
+<button onclick="moverCarrusel(1)">&#10095;</button>
+</div>
+<div class="indicadores">
+<span class="indicador activo" onclick="irAImagen(0)"></span>
+<span class="indicador" onclick="irAImagen(1)"></span>
+<span class="indicador" onclick="irAImagen(2)"></span>
+<span class="indicador" onclick="irAImagen(3)"></span>
+<span class="indicador" onclick="irAImagen(4)"></span>
+<span class="indicador" onclick="irAImagen(5)"></span>
+</div>
+</div>
+ 
+    <script>
+        const carruselTrack = document.querySelector('.carrusel-track');
+        const carruselImagenes = document.querySelectorAll('.carrusel-imagen');
+        const indicadores = document.querySelectorAll('.indicador');
+        let indiceActual = 0;
+        const anchoImagen = carruselImagenes[0].offsetWidth; // Obtener el ancho de una imagen
+ 
+        function actualizarCarrusel() {
+            carruselTrack.style.transform = `translateX(-${indiceActual * anchoImagen}px)`;
+            actualizarIndicadores();
+        }
+ 
+        function actualizarIndicadores() {
+            indicadores.forEach((indicador, index) => {
+                indicador.classList.toggle('activo', index === indiceActual);
+            });
+        }
+ 
+        function moverCarrusel(direccion) {
+            indiceActual += direccion;
+ 
+            if (indiceActual < 0) {
+                indiceActual = carruselImagenes.length - 1;
+            } else if (indiceActual >= carruselImagenes.length) {
+                indiceActual = 0;
+            }
+ 
+            actualizarCarrusel();
+        }
+ 
+        function irAImagen(indice) {
+            indiceActual = indice;
+            actualizarCarrusel();
+        }
+ 
+        // Asegurar que el ancho de la imagen se recalcule si la ventana cambia de tamaño
+        window.addEventListener('resize', () => {
+            anchoImagen = carruselImagenes[0].offsetWidth;
+            actualizarCarrusel();
+        });
+</script>
+</body>
+</html>

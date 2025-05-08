@@ -1,0 +1,81 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #A2C8E1; /* Azul claro */
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para la marquesina */
+.marquesina {
+    font-size: 24px;
+    font-weight: bold;
+    color: yellow;
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Estilo para el menú de navegación */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    background-color: #333;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para la portada */
+.portada {
+    text-align: center;
+    padding: 50px;
+}
+
+.portada h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.portada ul {
+    list-style-type: none;
+    font-size: 20px;
+}
+
+.portada img {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* Estilo para el botón */
+button {
+    background-color: #FF9900;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin: 50px auto;
+}
+
+button:hover {
+    background-color: #E68A00;
+}
