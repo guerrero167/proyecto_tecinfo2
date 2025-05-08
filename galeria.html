@@ -3,75 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrusel de Imágenes 2</title>
-    <style>
-        .carousel-container {
-            width: 500px; /* Ajusta el ancho deseado */
-            overflow: hidden;
-            position: relative;
-        }
-
-        .carousel-wrapper {
-            display: flex;
-            width: calc(500px * 6); /* Ancho total para 6 imágenes */
-            transition: transform 0.5s ease-in-out;
-            transform: translateX(0);
-        }
-
-        .carousel-image {
-            width: 500px; /* Debe ser igual al ancho del contenedor */
-            flex-shrink: 0;
-        }
-
-        .carousel-nav {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .carousel-nav button {
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-    </style>
+    <title>Galería de Imágenes</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <div class="carousel-container">
-        <div class="carousel-wrapper">
-            <img src="imagen 1.jpg" alt="Imagen 1" class="carousel-image">
-            <img src="imagen 2.jpg" alt="Imagen 2" class="carousel-image">
-            <img src="imagen 3.jpg" alt="Imagen 3" class="carousel-image">
-            <img src="imagen 4.jpg" alt="Imagen 4" class="carousel-image">
-            <img src="imagen 5.jpg" alt="Imagen 5" class="carousel-image">
-            <img src="imagen 6.jpg" alt="Imagen 6" class="carousel-image">
-        </div>
-        <div class="carousel-nav">
-            <button onclick="changeSlide(-1)">&#10094;</button>
-            <button onclick="changeSlide(1)">&#10095;</button>
-        </div>
+    <h1>Galería de Imágenes</h1>
+    <div class="galeria">
+        <img src="imagen 1.jpg" alt="Imagen 1">
+        <img src="imagen 2.jpg" alt="Imagen 2">
+        <img src="imagen 3.jpg" alt="Imagen 3">
+        <img src="imagen 4.jpg" alt="Imagen 4">
+        <img src="imagen 5.jpg" alt="Imagen 5">
+        <img src="imagen 6.jpg" alt="Imagen 6">
     </div>
 
-    <script>
-        const carouselWrapper = document.querySelector('.carousel-wrapper');
-        const carouselImages = document.querySelectorAll('.carousel-image');
-        const containerWidth = document.querySelector('.carousel-container').offsetWidth;
-        let counter = 0;
-
-        function changeSlide(direction) {
-            counter += direction;
-
-            if (counter < 0) {
-                counter = carouselImages.length - 1;
-            } else if (counter >= carouselImages.length) {
-                counter = 0;
-            }
-
-            carouselWrapper.style.transform = `translateX(${-containerWidth * counter}px)`;
-        }
-    </script>
+    <script src="interactividad.js"></script>
 </body>
 </html>
+
