@@ -1,0 +1,63 @@
+/* Estilos generales */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f8ff;
+  color: #333;
+}
+
+header {
+  background-color: #4da6ff;
+  color: white;
+  text-align: center;
+  padding: 2em 1em;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #e6f2ff;
+  padding: 1em;
+  gap: 10px;
+}
+
+nav button {
+  background-color: #4da6ff;
+  color: white;
+  border: none;
+  padding: 0.8em 1.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+nav button:hover {
+  background-color: #3399ff;
+}
+
+main {
+  padding: 2em;
+  max-width: 900px;
+  margin: auto;
+}
+
+.contenido {
+  display: none;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+footer {
+  background-color: #4da6ff;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
